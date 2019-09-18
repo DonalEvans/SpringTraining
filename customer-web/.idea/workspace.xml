@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7d8b6740-ef58-48e1-b3a4-b22f1f672d38" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/manifest.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/java/io/pivotal/bookshop/CustomerWebApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/java/io/pivotal/bookshop/config/GemFireConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/java/io/pivotal/bookshop/dao/BookDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/java/io/pivotal/bookshop/dao/BookJdbcDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/java/io/pivotal/bookshop/dao/CustomerDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/java/io/pivotal/bookshop/dao/CustomerJdbcDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/java/io/pivotal/bookshop/dao/CustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/java/io/pivotal/bookshop/domain/Address.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/java/io/pivotal/bookshop/domain/BookMaster.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/java/io/pivotal/bookshop/domain/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/java/io/pivotal/bookshop/services/DataService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/java/io/pivotal/bookshop/web/BookController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/java/io/pivotal/bookshop/web/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/java/io/pivotal/bookshop/web/DataLoaderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/application-local.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/bookData.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/customerData.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/schema.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/resources/images/Pivotal-Cloud-Cache.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/resources/images/pivotal-logo-600.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/resources/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/resources/styles/bootstrap/3.3.5/css/bootstrap-theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/resources/styles/bootstrap/3.3.5/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/resources/styles/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/resources/styles/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/resources/styles/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/resources/styles/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/resources/styles/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/resources/styles/pivotal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/styles/bootstrap/3.3.5/css/bootstrap-theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/styles/bootstrap/3.3.5/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/styles/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/styles/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/styles/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/styles/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/styles/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/static/styles/pivotal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/templates/displayCustomer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/main/resources/templates/enterCustomer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../05-Spring-Gemfire-solution/customer-web/src/test/java/io/pivotal/bookshop/CustomerWebApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../01-Overview/customer-web/manifest.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../01-Overview/customer-web/manifest.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../02-Session-State-Cache-solution/customer-web/manifest.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../02-Session-State-Cache-solution/customer-web/manifest.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../02-Session-State-Cache-start/customer-web/manifest.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../02-Session-State-Cache-start/customer-web/manifest.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifest.yml" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../03-Cache-Aside-start/customer-web/manifest.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../03-Cache-Aside-start/customer-web/manifest.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../04-PCC-Client-solution/customer-web/manifest.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../04-PCC-Client-solution/customer-web/manifest.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../04-PCC-Client-solution/customer-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../04-PCC-Client-solution/customer-web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../04-PCC-Client-start/customer-web/manifest.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../04-PCC-Client-start/customer-web/manifest.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../04-PCC-Client-start/customer-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../04-PCC-Client-start/customer-web/pom.xml" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/services/DataService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="109" column="38" selection-start-line="109" selection-start-column="38" selection-end-line="109" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>actuator</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/CustomerWebApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/domain/Address.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/domain/BookMaster.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/web/DataLoaderController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/web/BookController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/dao/BookDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/dao/BookJdbcDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/dao/CustomerDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/dao/CustomerJdbcDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/web/CustomerWebController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/domain/Customer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/web/CustomerController.java" />
+        <option value="$PROJECT_DIR$/manifest.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/services/DataService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/config/GemFireConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application-local.properties" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="customer-web" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="173" />
+    <option name="y" value="129" />
+    <option name="width" value="2333" />
+    <option name="height" value="1215" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="customer-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="customer-web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="customer-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="customer-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="customer-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="customer-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="customer-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="customer-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="customer-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="customer-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bookshop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="customer-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="customer-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bookshop" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="customer-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="customer-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="bookshop" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="customer-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="customer-web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="customer-web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554327988055" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="io.pivotal.bookshop.dao" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="io.pivotal.bookshop.web" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop" />
+      <recent name="$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/dao" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="CustomerWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="customer-web" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.pivotal.bookshop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="io.pivotal.bookshop.CustomerWebApplication" />
+      <option name="VM_PARAMETERS" value="-Dspring.profiles.active=local" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7d8b6740-ef58-48e1-b3a4-b22f1f672d38" name="Default Changelist" comment="" />
+      <created>1552688879220</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1552688879220</updated>
+      <workItem from="1552688882265" duration="1743000" />
+      <workItem from="1553289958332" duration="381000" />
+      <workItem from="1553803742562" duration="1316000" />
+      <workItem from="1553810274552" duration="1483000" />
+      <workItem from="1554128221723" duration="1104000" />
+      <workItem from="1554307605032" duration="3331000" />
+      <workItem from="1554399778066" duration="673000" />
+      <workItem from="1567048774030" duration="6638000" />
+      <workItem from="1567691410104" duration="1117000" />
+      <workItem from="1568301287287" duration="2322000" />
+      <workItem from="1568321117435" duration="3117000" />
+      <workItem from="1568410861941" duration="23000" />
+      <workItem from="1568418142799" duration="4274000" />
+      <workItem from="1568784632271" duration="1143000" />
+      <workItem from="1568786351122" duration="77000" />
+      <workItem from="1568814656535" duration="540000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="29282000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="173" y="129" width="1507" height="921" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24914676" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32924107" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3287841" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="TunnelliJ" order="14" />
+      <window_info anchor="bottom" id="Messages" order="15" weight="0.3287841" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32997987" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../../02-Session-State-Cache-solution/customer-web/src/main/java/io/pivotal/bookshop/services/DataService.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/dao/CustomerJdbcDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/dao/CustomerDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/customerData.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="127" selection-start-line="2" selection-end-line="2" selection-end-column="127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/dao/BookJdbcDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="72" selection-start-line="65" selection-end-line="72" />
+          <folding>
+            <element signature="e#2590#2591#0" expanded="true" />
+            <element signature="e#2685#2686#0" expanded="true" />
+            <element signature="e#2759#2760#0" expanded="true" />
+            <element signature="e#2847#2848#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/dao/BookDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/web/CustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/web/DataLoaderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/CustomerWebApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/schema.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/core-spring-code/lab/36-mvc/src/test/java/accounts/web/AccountControllerTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="51" column="66" selection-start-line="51" selection-start-column="66" selection-end-line="51" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/Courses/Pivotal-Cloud-Cache-developer/06-Cache-aside-solution/customer-web/src/main/java/io/pivotal/bookshop/domain/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" selection-start-line="9" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/Courses/Pivotal-Cloud-Cache-developer/06-Cache-aside-solution/customer-web/src/main/java/io/pivotal/bookshop/domain/BookMaster.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/Courses/Pivotal-Cloud-Cache-developer/06-Cache-aside-solution/customer-web/src/main/java/io/pivotal/bookshop/services/DataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="81" column="35" lean-forward="true" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/web/BookController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="41" column="7" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
+          <folding>
+            <element signature="e#664#665#0" expanded="true" />
+            <element signature="e#706#707#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/domain/BookMaster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="47" selection-start-line="4" selection-start-column="47" selection-end-line="4" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/domain/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/domain/Address.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application-local.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-gemfire/2.1.9.RELEASE/spring-data-gemfire-2.1.9.RELEASE.jar!/org/springframework/data/gemfire/config/annotation/EnableCachingDefinedRegions.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.8.RELEASE/spring-context-5.1.8.RELEASE.jar!/org/springframework/cache/annotation/Cacheable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/config/GemFireConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="12" selection-start-line="7" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.8.RELEASE/spring-context-5.1.8.RELEASE.jar!/org/springframework/cache/annotation/CachePut.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manifest.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="90" selection-start-line="90" selection-end-line="93" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/pivotal/bookshop/services/DataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="109" column="38" selection-start-line="109" selection-start-column="38" selection-end-line="109" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

@@ -1,0 +1,7 @@
+---
+applications:
+- name: customer-web-<space-name>
+  path: target/customer-web-0.0.1-SNAPSHOT.jar
+  services:
+    - bookshop-db
+    - bookshop-cache
