@@ -5,7 +5,7 @@ s file should contain patterns all developers want to ignore
 # see git help gitignore for more details
 build/
 .idea/
-customer-web/.idea/workspace.xml
+workspace.xml
 .gradle/
 .classpath
 .project

@@ -124,4 +124,8 @@ public class DataService {
         }
     }
 
+    public List<BookMaster> displayCheckedOutBooks(Integer customerNumber) {
+        return bookDao.findBooksByCurrentOwner(customerNumber);
+    }
+
 }

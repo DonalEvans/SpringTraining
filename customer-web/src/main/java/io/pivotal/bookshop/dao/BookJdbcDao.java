@@ -52,6 +52,13 @@ public class BookJdbcDao implements BookDao {
     }
 
     @Override
+    public List<BookMaster> findBooksByCurrentOwner(Integer customerNumber) {
+        return jdbcTemplate.query("select * from books where current_owner = ?",
+                new BookMapper(),
+                customerNumber);
+    }
+
+    @Override
     public int countBooks() {
         return jdbcTemplate.queryForObject("select count(*) from books", Integer.class);
     }

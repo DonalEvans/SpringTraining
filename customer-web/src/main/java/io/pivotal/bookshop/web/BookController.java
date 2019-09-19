@@ -4,8 +4,12 @@ import io.pivotal.bookshop.domain.BookMaster;
 import io.pivotal.bookshop.domain.Customer;
 import io.pivotal.bookshop.services.DataService;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -47,13 +51,41 @@ public class BookController {
         service.removeBook(bookToDelete);
     }
 
-    @PutMapping("/customer/{customerId}/book/{itemNumber}")
+    @PutMapping("/book/{itemNumber}/customer/{customerNumber}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<BookMaster> checkoutBook(@PathVariable Integer customerId, @PathVariable Integer itemNumber){
+    public ResponseEntity<String> checkoutBook(@PathVariable Integer itemNumber, @PathVariable Integer customerNumber){
+        BookMaster bookToCheckout = service.getBookById(itemNumber);
+        if (!bookToCheckout.isCheckedOut()) {
+            bookToCheckout.setCheckedOut(true);
+            bookToCheckout.setCurrentOwner(customerNumber);
+            service.saveBook(bookToCheckout);
+            return ResponseEntity.ok(service.getBookById(itemNumber).toString());
+        }
+        else {
+            return ResponseEntity.ok("Book already checked out.");
+        }
+    }
+
+    @PutMapping("/displayBooks")
+    public ResponseEntity<BookMaster> displayBooks(@PathVariable Integer customerId, @PathVariable Integer itemNumber){
         BookMaster bookToCheckout = service.getBookById(itemNumber);
         bookToCheckout.setCheckedOut(true);
         bookToCheckout.setCurrentOwner(customerId);
         service.saveBook(bookToCheckout);
         return ResponseEntity.ok(service.getBookById(itemNumber));
     }
+
+    @GetMapping("/displayCheckedOutBooks/{customerNumber}")
+    public List<BookMaster> displayCheckedOutBooks(@PathVariable Integer customerNumber) {
+        return service.displayCheckedOutBooks(customerNumber);
+    }
+
+//    @PutMapping("/checkoutBook")
+//    public String processCheckout(@RequestParam String itemNumber, @RequestParam String customerNumber, @CookieValue(name = "JSESSIONID", required = false) String sessionId, Model model) {
+//        ResponseEntity<BookMaster> checkoutResponse = checkoutBook(new Integer(itemNumber), new Integer (customerNumber));
+//        if(checkoutResponse.getStatusCode() == HttpStatus.OK) {
+//            RequestEntity checkoutRequest;
+//        }
+//        return "displayCustomer";
+//    }
 }

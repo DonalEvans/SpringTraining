@@ -53,14 +53,36 @@
     {{/customer}}
 </div>
 <div class="row">
-
+    {{#customer}}
     <h2>Checkout Book</h2>
     <h3>Valid values: 101-1100</h3>
-    <form action="/changeCustomer" method="post">
-        Enter the Id of the book you would like to check out: <input type="text" name="bookNumber"><br>
+    <form action="/displayCustomer" method="post">
+        Enter the Id of the book you would like to check out: <input type="text" name="itemNumber"><br>
         <br><br>
-        <input type="submit" value="Submit"/>
+        <input type="submit" value="Checkout"/>
+        <input type="hidden" id="customerNumber" name="customerNumber" value={{customerNumber}}>
     </form>
+    {{/customer}}
 </div>
+<div class="row">
+    <h1>My Books</h1>
+    {{#book}}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3">Title:</div>
+            <div class="col-sm-9">{{title}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Author:</div>
+            <div class="col-sm-9">{{author}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Item Number:</div>
+            <div class="col-sm-9">{{itemNumber}}</div>
+        </div>
+    </div>
+    {{/book}}
+</div>
+
 </body>
 </html>
