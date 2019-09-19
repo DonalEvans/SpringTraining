@@ -7,21 +7,21 @@ public class BookMaster implements Serializable
 
     private int itemNumber;
     private String description;
-    private float retailCost;
     private int yearPublished;
     private String author;
     private String title;
+    private boolean checkedOut;
 
-    public BookMaster(int itemNumber, String description, float retailCost,
+    public BookMaster(int itemNumber, String description,
                       int yearPublished, String author, String title)
     {
         super();
         this.itemNumber = itemNumber;
         this.description = description;
-        this.retailCost = retailCost;
         this.yearPublished = yearPublished;
         this.author = author;
         this.title = title;
+        this.checkedOut = false;
     }
 
     public BookMaster() {}
@@ -68,14 +68,6 @@ public class BookMaster implements Serializable
     {
         this.description = description;
     }
-    public float getRetailCost()
-    {
-        return retailCost;
-    }
-    public void setRetailCost(float retailCost)
-    {
-        this.retailCost = retailCost;
-    }
     public int getYearPublished()
     {
         return yearPublished;
@@ -99,6 +91,14 @@ public class BookMaster implements Serializable
     public void setTitle(String title)
     {
         this.title = title;
+    }
+
+    public boolean isCheckedOut() {
+        return checkedOut;
+    }
+
+    public void setCheckedOut(boolean checkedOut) {
+        this.checkedOut = checkedOut;
     }
 
 

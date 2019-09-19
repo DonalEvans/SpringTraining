@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
-import java.awt.print.Book;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -63,10 +62,9 @@ public class BookJdbcDao implements BookDao {
     }
 
     private int insertBook(BookMaster book) {
-        return jdbcTemplate.update("insert into books (item_number, description, retail_cost, publication_date, author, title) values (?,?,?,?,?,?)",
+        return jdbcTemplate.update("insert into books (item_number, description, publication_date, author, title) values (?,?,?,?,?,?)",
                 book.getItemNumber(),
                 book.getDescription(),
-                book.getRetailCost(),
                 book.getYearPublished(),
                 book.getAuthor(),
                 book.getAuthor()
@@ -75,9 +73,8 @@ public class BookJdbcDao implements BookDao {
     }
 
     private int updateBook(BookMaster book) {
-        return  jdbcTemplate.update("update books set description=?, retail_cost=?, publication_date=?, author=?, title=? where item_number=?",
+        return  jdbcTemplate.update("update books set description=?, publication_date=?, author=?, title=? where item_number=?",
                 book.getDescription(),
-                book.getRetailCost(),
                 book.getYearPublished(),
                 book.getAuthor(),
                 book.getTitle(),
@@ -95,7 +92,7 @@ public class BookJdbcDao implements BookDao {
 
         @Override
         public BookMaster mapRow(ResultSet rs, int i) throws SQLException {
-            return new BookMaster(rs.getInt("item_number"),rs.getString("description"),rs.getFloat("retail_cost"),
+            return new BookMaster(rs.getInt("item_number"),rs.getString("description"),
                     rs.getInt("publication_date"),rs.getString("author"),rs.getString("title"));
         }
     }
