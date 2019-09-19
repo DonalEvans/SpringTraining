@@ -1,23 +1,23 @@
 package io.pivotal.bookshop.web;
 
-        import io.pivotal.bookshop.domain.BookMaster;
-        import io.pivotal.bookshop.domain.Customer;
-        import io.pivotal.bookshop.services.DataService;
-        import org.slf4j.Logger;
-        import org.slf4j.LoggerFactory;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.http.HttpEntity;
-        import org.springframework.http.ResponseEntity;
-        import org.springframework.stereotype.Controller;
-        import org.springframework.ui.Model;
-        import org.springframework.web.bind.annotation.*;
-        import org.springframework.web.client.RestTemplate;
+import io.pivotal.bookshop.domain.BookMaster;
+import io.pivotal.bookshop.domain.Customer;
+import io.pivotal.bookshop.services.DataService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
-        import java.net.MalformedURLException;
-        import java.net.URI;
-        import java.net.URISyntaxException;
-        import java.net.URL;
-        import java.util.List;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.List;
 
 /**
  * A controller for the Customer domain object. This particular controller supports both RESTful interactions, as well
@@ -37,7 +37,8 @@ public class CustomerController {
     // ================================== REST Operations ==================================
 
     @GetMapping("/customer")
-    public @ResponseBody List<Customer> listCustomers() {
+    public @ResponseBody
+    List<Customer> listCustomers() {
         return service.listCustomers();
     }
 
@@ -75,21 +76,24 @@ public class CustomerController {
     public String displayCustomer(@RequestParam(required = false) String itemNumber, @RequestParam String customerNumber, @CookieValue(name = "JSESSIONID", required = false) String sessionId, Model model) throws URISyntaxException, MalformedURLException {
         logger.info("In displayCustomer() processing customer number: " + customerNumber);
         logger.info("JSESSIONID = " + sessionId);
-        if (itemNumber != null) {
-            RestTemplate template = new RestTemplate();
-            String urLocation = new String("http://customer-web-doevans.apps.ceres.cf-app.com/book/" + itemNumber + "/customer/" + customerNumber);
-            URL checkoutURI = new URL(urLocation);
-            template.put(checkoutURI.toURI(), null);
+        if (itemNumber != null && !itemNumber.isEmpty()) {
             BookMaster book = service.getBookById(new Integer(itemNumber));
             if (book != null) {
-                model.addAttribute("book", book);
+                if (!book.isCheckedOut()) {
+                    RestTemplate template = new RestTemplate();
+                    String urLocation = "http://customer-web-doevans.apps.ceres.cf-app.com/book/" + itemNumber + "/customer/" + customerNumber;
+                    URL checkoutURI = new URL(urLocation);
+
+                    template.put(checkoutURI.toURI(), null);
+                    model.addAttribute("book", book);
+                } else {
+                    model.addAttribute("book", new BookMaster(book.getCurrentOwner(), "", 0, "***Book already checked out***", "***Not available***"));
+                }
+            } else {
+                model.addAttribute("book", new BookMaster(0, "", 0, "***Invalid book Id***", "***Not available***"));
             }
-            else {
-                model.addAttribute("book", new BookMaster(0, "", 0, "", ""));
-            }
-        }
-        else {
-            model.addAttribute("book", new BookMaster(0, "", 0, "", ""));
+        } else {
+            model.addAttribute("book", new BookMaster(2019, "", 0, "TO THE LIBRARY", "WELCOME"));
         }
 
         Customer customer = service.getCustomerById(new Integer(customerNumber));
