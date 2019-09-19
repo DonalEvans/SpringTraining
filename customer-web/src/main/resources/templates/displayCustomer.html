@@ -30,7 +30,7 @@
                 </div>
             </div>
         </nav>
-        <div style="text-align: "left">[ <a href="/" >Home</a> | <a href="/enterCustomer">Change Customer</a> ] </div>
+        <div style="text-align: "left">[ <a href="/" >Home</a> | <a href="/customerLogin">Customer Login</a> ] </div>
 </div>
 <br><br>
 <div class="row">
@@ -51,6 +51,16 @@
         </div>
     </div>
     {{/customer}}
+</div>
+<div class="row">
+
+    <h2>Checkout Book</h2>
+    <h3>Valid values: 101-1100</h3>
+    <form action="/changeCustomer" method="post">
+        Enter the Id of the book you would like to check out: <input type="text" name="bookNumber"><br>
+        <br><br>
+        <input type="submit" value="Submit"/>
+    </form>
 </div>
 </body>
 </html>

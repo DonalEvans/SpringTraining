@@ -1,6 +1,7 @@
 package io.pivotal.bookshop.web;
 
 import io.pivotal.bookshop.domain.BookMaster;
+import io.pivotal.bookshop.domain.Customer;
 import io.pivotal.bookshop.services.DataService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -44,5 +45,15 @@ public class BookController {
     public void deleteBook(@PathVariable Integer itemNumber) {
         BookMaster bookToDelete = service.getBookById(itemNumber);
         service.removeBook(bookToDelete);
+    }
+
+    @PutMapping("/customer/{customerId}/book/{itemNumber}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<BookMaster> checkoutBook(@PathVariable Integer customerId, @PathVariable Integer itemNumber){
+        BookMaster bookToCheckout = service.getBookById(itemNumber);
+        bookToCheckout.setCheckedOut(true);
+        bookToCheckout.setCurrentOwner(customerId);
+        service.saveBook(bookToCheckout);
+        return ResponseEntity.ok(service.getBookById(itemNumber));
     }
 }

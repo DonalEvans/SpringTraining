@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS books (
    author VARCHAR(30) NOT NULL, 
    description VARCHAR(100),
    publication_date INT,
-   checked_out BIT,
+   checked_out BOOLEAN,
    current_owner int not null
 );
 alter table books add constraint book_pk primary key (item_number);

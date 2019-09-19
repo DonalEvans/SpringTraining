@@ -62,22 +62,26 @@ public class BookJdbcDao implements BookDao {
     }
 
     private int insertBook(BookMaster book) {
-        return jdbcTemplate.update("insert into books (item_number, description, publication_date, author, title) values (?,?,?,?,?,?)",
+        return jdbcTemplate.update("insert into books (item_number, description, publication_date, author, title, checked_out, current_owner) values (?,?,?,?,?,?,?,?)",
                 book.getItemNumber(),
                 book.getDescription(),
                 book.getYearPublished(),
                 book.getAuthor(),
-                book.getAuthor()
+                book.getAuthor(),
+                book.isCheckedOut(),
+                book.getCurrentOwner()
         );
 
     }
 
     private int updateBook(BookMaster book) {
-        return  jdbcTemplate.update("update books set description=?, publication_date=?, author=?, title=? where item_number=?",
+        return  jdbcTemplate.update("update books set description=?, publication_date=?, author=?, title=?, checked_out=?, current_owner=? where item_number=?",
                 book.getDescription(),
                 book.getYearPublished(),
                 book.getAuthor(),
                 book.getTitle(),
+                book.isCheckedOut(),
+                book.getCurrentOwner(),
                 book.getItemNumber()
         );
 

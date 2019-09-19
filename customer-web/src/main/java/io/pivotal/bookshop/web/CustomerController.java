@@ -52,7 +52,7 @@ public class CustomerController {
         logger.info("In home()");
         if (customer == null) {
             logger.info("No customer found");
-            return "enterCustomer";
+            return "customerLogin";
         } else {
             model.addAttribute("customer", customer);
             logger.info("Found customer in session: " + customer);
@@ -60,9 +60,9 @@ public class CustomerController {
         }
     }
 
-    @GetMapping("/enterCustomer")
+    @GetMapping("/customerLogin")
     public String enterCustomer() {
-        return "enterCustomer";
+        return "customerLogin";
     }
 
     @PostMapping("/changeCustomer")
@@ -77,7 +77,7 @@ public class CustomerController {
             return "displayCustomer";
         } else {
             logger.info("Customer not found for customerNumber: " + customerNumber);
-            return "enterCustomer";
+            return "customerLogin";
         }
     }
 
