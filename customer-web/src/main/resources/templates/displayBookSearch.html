@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/resources/styles/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/resources/styles/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="/resources/styles/pivotal.css" />
+    <title>Hello Customer</title>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a title="Pivotal Cloud Cache" href="https://pivotal.io/platform/services-marketplace/data-management/pivotal-cloud-cache">
+                        <img alt="PCC" title="Pivotal Cloud Cache" height="50" src="/resources/images/Pivotal-Cloud-Cache.png" />
+                    </a>
+
+                </div>
+                <div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="http://www.pivotal.io">
+                                <img alt="Pivotal" title="Pivotal" height="20" src="resources/images/pivotal-logo-600.png"  />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div style="text-align: "left">[ <a href="/" >Home</a> | <a href="/displayCustomer">My Account</a> ] </div>
+</div>
+<br><br>
+
+<div class="row">
+    <h2>Checkout Book</h2>
+    <h3>Valid values: 101-1100</h3>
+    <form action="/displayBookSearch" method="post">
+        <label>
+            Enter Author:
+            <input type="text" name="author">
+        </label><br>
+        <label>
+            Enter Title:
+            <input type="text" name="title">
+        </label>
+        <br><br>
+        <input type="submit" value="Find a book"/>
+    </form>
+</div>
+<div class="row">
+    <label>
+<textarea cols="50" rows="30">
+Books for given author:
+    {{#booksByAuthor}}
+    Title: {{title}}
+    Author: {{author}}
+    Checked Out: {{checkedOut}}
+    Current Owner: {{currentOwner}}
+
+    {{/booksByAuthor}}
+Books for given title:
+    {{#booksByTitle}}
+    Title: {{title}}
+    Author: {{author}}
+    Checked Out: {{checkedOut}}
+    Current Owner: {{currentOwner}}
+
+    {{/booksByTitle}}
+</textarea>
+    </label>
+</div>
+
+</body>
+</html>

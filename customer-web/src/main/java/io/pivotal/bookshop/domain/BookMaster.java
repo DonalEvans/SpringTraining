@@ -14,7 +14,7 @@ public class BookMaster implements Serializable
     private int currentOwner;
 
     public BookMaster(int itemNumber, String description,
-                      int yearPublished, String author, String title)
+                      int yearPublished, String author, String title, boolean checkedOut, int currentOwner)
     {
         super();
         this.itemNumber = itemNumber;
@@ -22,8 +22,8 @@ public class BookMaster implements Serializable
         this.yearPublished = yearPublished;
         this.author = author;
         this.title = title;
-        this.checkedOut = false;
-        this.currentOwner = 0;
+        this.checkedOut = checkedOut;
+        this.currentOwner = currentOwner;
     }
 
     public BookMaster() {}

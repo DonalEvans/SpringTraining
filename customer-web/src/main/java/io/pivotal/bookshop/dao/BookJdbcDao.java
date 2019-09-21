@@ -59,6 +59,23 @@ public class BookJdbcDao implements BookDao {
     }
 
     @Override
+    public List<BookMaster> findBooksByAuthor(String authorToFind) {
+
+        List<BookMaster> authorBooks = jdbcTemplate.query("select * from books where author LIKE ?",
+                new BookMapper(),
+                "%"+authorToFind+"%");
+        return authorBooks;
+    }
+
+    @Override
+    public List<BookMaster> findBooksByTitle(String titleToFind) {
+        List<BookMaster> titleBooks = jdbcTemplate.query("select * from books where title LIKE ?",
+                new BookMapper(),
+                "%"+titleToFind+"%");
+        return titleBooks;
+    }
+
+    @Override
     public int countBooks() {
         return jdbcTemplate.queryForObject("select count(*) from books", Integer.class);
     }
@@ -104,7 +121,7 @@ public class BookJdbcDao implements BookDao {
         @Override
         public BookMaster mapRow(ResultSet rs, int i) throws SQLException {
             return new BookMaster(rs.getInt("item_number"),rs.getString("description"),
-                    rs.getInt("publication_date"),rs.getString("author"),rs.getString("title"));
+                    rs.getInt("publication_date"),rs.getString("author"),rs.getString("title"), rs.getBoolean("checked_out"), rs.getInt("current_owner"));
         }
     }
 }

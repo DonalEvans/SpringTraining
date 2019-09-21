@@ -12,6 +12,8 @@ public interface BookDao {
     List<BookMaster> listBooks(int maxResults);
     List<BookMaster> findBooksByYearPublished(Integer yearPublished);
     List<BookMaster> findBooksByCurrentOwner(Integer customerNumber);
+    List<BookMaster> findBooksByAuthor(String author);
+    List<BookMaster> findBooksByTitle(String title);
 
     boolean bookExists(BookMaster book);
     int countBooks();

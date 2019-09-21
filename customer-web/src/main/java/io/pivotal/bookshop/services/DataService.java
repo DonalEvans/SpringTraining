@@ -128,4 +128,11 @@ public class DataService {
         return bookDao.findBooksByCurrentOwner(customerNumber);
     }
 
+    public List<BookMaster> getBookByAuthor(String author) {
+        return bookDao.findBooksByAuthor(author);
+    }
+    public List<BookMaster> getBookByTitle(String title) {
+        return bookDao.findBooksByTitle(title);
+    }
+
 }

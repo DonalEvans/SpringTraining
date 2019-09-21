@@ -3,6 +3,9 @@ package io.pivotal.bookshop.web;
 import io.pivotal.bookshop.domain.BookMaster;
 import io.pivotal.bookshop.domain.Customer;
 import io.pivotal.bookshop.services.DataService;
+import org.hibernate.validator.constraints.pl.REGON;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
@@ -14,12 +17,14 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @RestController
 public class BookController {
     private final DataService service;
-
+    private Logger logger = LoggerFactory.getLogger("BookController");
     public BookController(DataService service) { this.service =  service;}
 
     @GetMapping("/book")
@@ -66,26 +71,34 @@ public class BookController {
         }
     }
 
-    @PutMapping("/displayBooks")
-    public ResponseEntity<BookMaster> displayBooks(@PathVariable Integer customerId, @PathVariable Integer itemNumber){
-        BookMaster bookToCheckout = service.getBookById(itemNumber);
-        bookToCheckout.setCheckedOut(true);
-        bookToCheckout.setCurrentOwner(customerId);
-        service.saveBook(bookToCheckout);
-        return ResponseEntity.ok(service.getBookById(itemNumber));
-    }
-
     @GetMapping("/displayCheckedOutBooks/{customerNumber}")
     public List<BookMaster> displayCheckedOutBooks(@PathVariable Integer customerNumber) {
         return service.displayCheckedOutBooks(customerNumber);
     }
 
-//    @PutMapping("/checkoutBook")
-//    public String processCheckout(@RequestParam String itemNumber, @RequestParam String customerNumber, @CookieValue(name = "JSESSIONID", required = false) String sessionId, Model model) {
-//        ResponseEntity<BookMaster> checkoutResponse = checkoutBook(new Integer(itemNumber), new Integer (customerNumber));
-//        if(checkoutResponse.getStatusCode() == HttpStatus.OK) {
-//            RequestEntity checkoutRequest;
-//        }
-//        return "displayCustomer";
-//    }
+    @GetMapping("/findBook/author/{author}")
+    public BookMaster[] findBookByAuthor(@PathVariable(required = false) String author, @CookieValue(name = "JSESSIONID", required = false) String sessionId, Model model) {
+        List<BookMaster> books = service.getBookByAuthor(author);
+        if (!books.isEmpty()) {
+            return books.stream().toArray(BookMaster[]::new);
+        }
+        else {
+            return new BookMaster[] {new BookMaster(0, "",
+                    0, "***No books found***", "***No books found***",
+                    false, 0)};
+        }
+    }
+
+    @GetMapping("/findBook/title/{title}")
+    public BookMaster[] findBookByTitle(@PathVariable(required = false) String title, @CookieValue(name = "JSESSIONID", required = false) String sessionId, Model model) {
+        List<BookMaster> books = service.getBookByTitle(title);
+        if (!books.isEmpty()) {
+            return books.stream().toArray(BookMaster[]::new);
+        }
+        else {
+            return new BookMaster[] {new BookMaster(0, "",
+                    0, "***No books found***", "***No books found***",
+                    false, 0)};
+        }
+    }
 }

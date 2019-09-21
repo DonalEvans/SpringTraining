@@ -12,11 +12,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -28,6 +32,7 @@ import java.util.List;
 public class CustomerController {
     private final DataService service;
     private Logger logger = LoggerFactory.getLogger("CustomerController");
+    private final String BASE_URL = "https://customer-web-doevans.apps.pcfone.io";
 
     @Autowired
     public CustomerController(DataService service) {
@@ -81,19 +86,25 @@ public class CustomerController {
             if (book != null) {
                 if (!book.isCheckedOut()) {
                     RestTemplate template = new RestTemplate();
-                    String urLocation = "http://customer-web-doevans.apps.ceres.cf-app.com/book/" + itemNumber + "/customer/" + customerNumber;
+                    String urLocation = BASE_URL + "/book/" + itemNumber + "/customer/" + customerNumber;
                     URL checkoutURI = new URL(urLocation);
 
                     template.put(checkoutURI.toURI(), null);
                     model.addAttribute("book", book);
                 } else {
-                    model.addAttribute("book", new BookMaster(book.getCurrentOwner(), "", 0, "***Book already checked out***", "***Not available***"));
+                    model.addAttribute("book", new BookMaster(book.getCurrentOwner(), "",
+                            0, "***Book already checked out***", "***Not available***",
+                            false, 0));
                 }
             } else {
-                model.addAttribute("book", new BookMaster(0, "", 0, "***Invalid book Id***", "***Not available***"));
+                model.addAttribute("book", new BookMaster(0, "",
+                        0, "***Invalid book Id***", "***Not available***",
+                        false, 0));
             }
         } else {
-            model.addAttribute("book", new BookMaster(2019, "", 0, "TO THE LIBRARY", "WELCOME"));
+            model.addAttribute("book", new BookMaster(2019, "",
+                    0, "TO THE LIBRARY", "WELCOME",
+                    false, 0));
         }
 
         Customer customer = service.getCustomerById(new Integer(customerNumber));
@@ -107,4 +118,26 @@ public class CustomerController {
         }
     }
 
+    @GetMapping("/displayBookSearch")
+    public String bookSearch() {
+        return "displayBookSearch";
+    }
+
+    @PostMapping("/displayBookSearch")
+    public String displayBookSearch(@RequestParam(required = false, defaultValue = "*no author*") String author, @RequestParam(required = false, defaultValue = "*no title*") String title, @CookieValue(name = "JSESSIONID", required = false) String sessionId, Model model ) throws MalformedURLException, URISyntaxException {
+        RestTemplate template = new RestTemplate();
+        BookMaster[] emptyArray = {};
+
+        String authorLocation = BASE_URL + "/findBook/author/" + author;
+        URI authorUri = ServletUriComponentsBuilder.fromUriString(authorLocation).buildAndExpand().toUri();
+        BookMaster[] booksByAuthor = template.getForObject(authorUri, BookMaster[].class);
+        model.addAttribute("booksByAuthor", author.equals("*no author*") ? emptyArray : booksByAuthor);
+
+        String titleLocation = BASE_URL + "/findBook/title/" + title;
+        URI titleUri = ServletUriComponentsBuilder.fromUriString(titleLocation).buildAndExpand().toUri();
+        BookMaster[] booksByTitle = template.getForObject(titleUri, BookMaster[].class);
+        model.addAttribute("booksByTitle", title.equals("*no title*") ? emptyArray : booksByTitle);
+
+        return "displayBookSearch";
+    }
 }

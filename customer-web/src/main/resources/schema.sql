@@ -29,25 +29,3 @@ create table if not exists customers (
    country varchar(15)
 );
 alter table customers add constraint customer_pk primary key(customer_number);
-
-drop table if exists book_orders;
-create table if not exists book_orders (
-   order_number int not null,
-   order_date date not null,
-   shipping_cost float not null,
-   ship_date date,
-   customer_number int not null,
-   total_price float
-);
-alter table book_orders add constraint book_order_pk primary key (order_number);
-
-drop table if exists order_items;
-create table if not exists order_items (
-  order_line int not null,
-  order_number int not null,
-  item_number int not null,
-  quantity int,
-  discount float
-
-);
-alter table order_items add constraint order_items_pk primary key (order_number, order_line);
