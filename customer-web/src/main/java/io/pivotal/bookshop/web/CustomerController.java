@@ -66,6 +66,13 @@ public class CustomerController {
             logger.info("No customer found");
             return "customerLogin";
         } else {
+            RestTemplate template = new RestTemplate();
+            String checkedOutBooksString = BASE_URL + "/findBook/customer/" + customer.getCustomerNumber();
+            URI checkedOutBooksURI = ServletUriComponentsBuilder.fromUriString(checkedOutBooksString).buildAndExpand().toUri();
+            BookMaster[] books =  template.getForObject(checkedOutBooksURI, BookMaster[].class);
+            if (books.length > 0) {
+                model.addAttribute("book", books);
+            }
             model.addAttribute("customer", customer);
             logger.info("Found customer in session: " + customer);
             return "displayCustomer";
@@ -81,34 +88,38 @@ public class CustomerController {
     public String displayCustomer(@RequestParam(required = false) String itemNumber, @RequestParam String customerNumber, @CookieValue(name = "JSESSIONID", required = false) String sessionId, Model model) throws URISyntaxException, MalformedURLException {
         logger.info("In displayCustomer() processing customer number: " + customerNumber);
         logger.info("JSESSIONID = " + sessionId);
+        RestTemplate template = new RestTemplate();
         if (itemNumber != null && !itemNumber.isEmpty()) {
             BookMaster book = service.getBookById(new Integer(itemNumber));
             if (book != null) {
                 if (!book.isCheckedOut()) {
-                    RestTemplate template = new RestTemplate();
-                    String urLocation = BASE_URL + "/book/" + itemNumber + "/customer/" + customerNumber;
-                    URL checkoutURI = new URL(urLocation);
 
-                    template.put(checkoutURI.toURI(), null);
-                    model.addAttribute("book", book);
+                    String urLocation = BASE_URL + "/book/" + itemNumber + "/customer/" + customerNumber;
+                    URI checkoutURI = ServletUriComponentsBuilder.fromUriString(urLocation).buildAndExpand().toUri();
+                    template.put(checkoutURI, null);
+                    model.addAttribute("status", new BookMaster(0, "",
+                            0, "", "Okay",
+                            false, 0));
                 } else {
-                    model.addAttribute("book", new BookMaster(book.getCurrentOwner(), "",
-                            0, "***Book already checked out***", "***Not available***",
+                    model.addAttribute("status", new BookMaster(0, "",
+                            0, "Current owner ID is: " + book.getCurrentOwner(), "***Book already checked out***",
                             false, 0));
                 }
             } else {
-                model.addAttribute("book", new BookMaster(0, "",
+                model.addAttribute("status", new BookMaster(0, "",
                         0, "***Invalid book Id***", "***Not available***",
                         false, 0));
             }
-        } else {
-            model.addAttribute("book", new BookMaster(2019, "",
-                    0, "TO THE LIBRARY", "WELCOME",
-                    false, 0));
         }
 
         Customer customer = service.getCustomerById(new Integer(customerNumber));
         if (customer != null) {
+            String checkedOutBooksString = BASE_URL + "/findBook/customer/" + customerNumber;
+            URI checkedOutBooksURI = ServletUriComponentsBuilder.fromUriString(checkedOutBooksString).buildAndExpand().toUri();
+            BookMaster[] books =  template.getForObject(checkedOutBooksURI, BookMaster[].class);
+            if (books.length > 0) {
+                model.addAttribute("book", books);
+            }
             model.addAttribute("customer", customer);
             model.addAttribute("sessionId", sessionId);
             return "displayCustomer";

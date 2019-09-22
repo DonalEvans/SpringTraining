@@ -30,7 +30,7 @@
                 </div>
             </div>
         </nav>
-        <div style="text-align: "left">[ <a href="/" >Home</a> | <a href="/displayCustomer">My Account</a> ] </div>
+        <div style="text-align: "left">[ <a href="/">My Account</a> ] </div>
 </div>
 <br><br>
 
@@ -51,26 +51,54 @@
     </form>
 </div>
 <div class="row">
-    <label>
-<textarea cols="50" rows="30">
-Books for given author:
-    {{#booksByAuthor}}
-    Title: {{title}}
-    Author: {{author}}
-    Checked Out: {{checkedOut}}
-    Current Owner: {{currentOwner}}
-
-    {{/booksByAuthor}}
-Books for given title:
-    {{#booksByTitle}}
-    Title: {{title}}
-    Author: {{author}}
-    Checked Out: {{checkedOut}}
-    Current Owner: {{currentOwner}}
-
-    {{/booksByTitle}}
-</textarea>
-    </label>
+    <div class="container-fluid">
+        <div class="col-sm-6">
+            Books for given author:
+            {{#booksByAuthor}}
+            <div class="row">
+                Title: {{title}}
+            </div>
+            <div class="row">
+                Author: {{author}}
+            </div>
+            <div class="row">
+                Checked Out: {{checkedOut}}
+            </div>
+            <div class="row">
+                Current Owner: {{currentOwner}}
+            </div>
+            <div class="row">
+                Book Id: {{itemNumber}}
+            </div>
+            <div class="row">
+                <br>
+            </div>
+            {{/booksByAuthor}}
+        </div>
+        <div class="col-sm-6">
+            Books for given title:
+            {{#booksByTitle}}
+            <div class="row">
+                Title: {{title}}
+            </div>
+            <div class="row">
+                Author: {{author}}
+            </div>
+            <div class="row">
+                Checked Out: {{checkedOut}}
+            </div>
+            <div class="row">
+                Current Owner: {{currentOwner}}
+            </div>
+            <div class="row">
+                Book Id: {{itemNumber}}
+            </div>
+            <div class="row">
+                <br>
+            </div>
+            {{/booksByTitle}}
+        </div>
+    </div>
 </div>
 
 </body>

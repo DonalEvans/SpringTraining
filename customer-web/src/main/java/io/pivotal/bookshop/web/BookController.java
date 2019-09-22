@@ -71,11 +71,6 @@ public class BookController {
         }
     }
 
-    @GetMapping("/displayCheckedOutBooks/{customerNumber}")
-    public List<BookMaster> displayCheckedOutBooks(@PathVariable Integer customerNumber) {
-        return service.displayCheckedOutBooks(customerNumber);
-    }
-
     @GetMapping("/findBook/author/{author}")
     public BookMaster[] findBookByAuthor(@PathVariable(required = false) String author, @CookieValue(name = "JSESSIONID", required = false) String sessionId, Model model) {
         List<BookMaster> books = service.getBookByAuthor(author);
@@ -92,6 +87,19 @@ public class BookController {
     @GetMapping("/findBook/title/{title}")
     public BookMaster[] findBookByTitle(@PathVariable(required = false) String title, @CookieValue(name = "JSESSIONID", required = false) String sessionId, Model model) {
         List<BookMaster> books = service.getBookByTitle(title);
+        if (!books.isEmpty()) {
+            return books.stream().toArray(BookMaster[]::new);
+        }
+        else {
+            return new BookMaster[] {new BookMaster(0, "",
+                    0, "***No books found***", "***No books found***",
+                    false, 0)};
+        }
+    }
+
+    @GetMapping("/findBook/customer/{customerNumber}")
+    public BookMaster[] findBookByCustomer(@PathVariable Integer customerNumber, @CookieValue(name = "JSESSIONID", required = false) String sessionId, Model model) {
+        List<BookMaster> books = service.displayCheckedOutBooks(customerNumber);
         if (!books.isEmpty()) {
             return books.stream().toArray(BookMaster[]::new);
         }

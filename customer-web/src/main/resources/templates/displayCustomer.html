@@ -65,6 +65,16 @@
     {{/customer}}
 </div>
 <div class="row">
+    <h3>Request Status</h3>
+    {{#status}}
+    <div class="text">
+        {{title}}
+        <br>
+        {{author}}
+    </div>
+    {{/status}}
+</div>
+<div class="row">
     <h1>My Books</h1>
     {{#book}}
     <div class="container-fluid">
@@ -79,6 +89,7 @@
         <div class="row">
             <div class="col-sm-3">Item Number:</div>
             <div class="col-sm-9">{{itemNumber}}</div>
+
         </div>
     </div>
     {{/book}}
