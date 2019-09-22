@@ -53,7 +53,9 @@
 <div class="row">
     <div class="container-fluid">
         <div class="col-sm-6">
-            Books for given author:
+            <div class="row">
+                <span style="font-size: 20pt">Books for given author:</span>
+            </div>
             {{#booksByAuthor}}
             <div class="row">
                 Title: {{title}}
@@ -76,7 +78,9 @@
             {{/booksByAuthor}}
         </div>
         <div class="col-sm-6">
-            Books for given title:
+            <div class="row">
+                <span style="font-size: 20pt">Books for given title:</span>
+            </div>
             {{#booksByTitle}}
             <div class="row">
                 Title: {{title}}

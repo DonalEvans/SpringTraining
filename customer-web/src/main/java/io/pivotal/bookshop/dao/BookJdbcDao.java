@@ -91,7 +91,7 @@ public class BookJdbcDao implements BookDao {
                 book.getDescription(),
                 book.getYearPublished(),
                 book.getAuthor(),
-                book.getAuthor(),
+                book.getTitle(),
                 book.isCheckedOut(),
                 book.getCurrentOwner()
         );

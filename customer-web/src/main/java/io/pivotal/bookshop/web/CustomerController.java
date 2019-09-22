@@ -116,8 +116,9 @@ public class CustomerController {
         if (customer != null) {
             String checkedOutBooksString = BASE_URL + "/findBook/customer/" + customerNumber;
             URI checkedOutBooksURI = ServletUriComponentsBuilder.fromUriString(checkedOutBooksString).buildAndExpand().toUri();
-            BookMaster[] books =  template.getForObject(checkedOutBooksURI, BookMaster[].class);
-            if (books.length > 0) {
+//            BookMaster[] books =  template.getForObject(checkedOutBooksURI, BookMaster[].class);
+            List<BookMaster> books = service.displayCheckedOutBooks(new Integer(customerNumber));
+            if (!books.isEmpty()) {
                 model.addAttribute("book", books);
             }
             model.addAttribute("customer", customer);
@@ -141,12 +142,24 @@ public class CustomerController {
 
         String authorLocation = BASE_URL + "/findBook/author/" + author;
         URI authorUri = ServletUriComponentsBuilder.fromUriString(authorLocation).buildAndExpand().toUri();
-        BookMaster[] booksByAuthor = template.getForObject(authorUri, BookMaster[].class);
+//        BookMaster[] booksByAuthor = template.getForObject(authorUri, BookMaster[].class);
+        List<BookMaster> booksByAuthor = service.getBookByAuthor(author);
+        if(booksByAuthor.isEmpty()) {
+            booksByAuthor.add(new BookMaster(0, "",
+                    0, "***No books found***", "***No books found***",
+                    false, 0));
+        }
         model.addAttribute("booksByAuthor", author.equals("*no author*") ? emptyArray : booksByAuthor);
 
         String titleLocation = BASE_URL + "/findBook/title/" + title;
         URI titleUri = ServletUriComponentsBuilder.fromUriString(titleLocation).buildAndExpand().toUri();
-        BookMaster[] booksByTitle = template.getForObject(titleUri, BookMaster[].class);
+//        BookMaster[] booksByTitle = template.getForObject(titleUri, BookMaster[].class);
+        List<BookMaster> booksByTitle = service.getBookByTitle(title);
+        if(booksByTitle.isEmpty()) {
+            booksByTitle.add(new BookMaster(0, "",
+                    0, "***No books found***", "***No books found***",
+                    false, 0));
+        }
         model.addAttribute("booksByTitle", title.equals("*no title*") ? emptyArray : booksByTitle);
 
         return "displayBookSearch";

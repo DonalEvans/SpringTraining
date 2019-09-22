@@ -75,7 +75,7 @@ public class BookController {
     public BookMaster[] findBookByAuthor(@PathVariable(required = false) String author, @CookieValue(name = "JSESSIONID", required = false) String sessionId, Model model) {
         List<BookMaster> books = service.getBookByAuthor(author);
         if (!books.isEmpty()) {
-            return books.stream().toArray(BookMaster[]::new);
+            return books.toArray(new BookMaster[0]);
         }
         else {
             return new BookMaster[] {new BookMaster(0, "",
@@ -88,7 +88,7 @@ public class BookController {
     public BookMaster[] findBookByTitle(@PathVariable(required = false) String title, @CookieValue(name = "JSESSIONID", required = false) String sessionId, Model model) {
         List<BookMaster> books = service.getBookByTitle(title);
         if (!books.isEmpty()) {
-            return books.stream().toArray(BookMaster[]::new);
+            return books.toArray(new BookMaster[0]);
         }
         else {
             return new BookMaster[] {new BookMaster(0, "",
@@ -101,7 +101,7 @@ public class BookController {
     public BookMaster[] findBookByCustomer(@PathVariable Integer customerNumber, @CookieValue(name = "JSESSIONID", required = false) String sessionId, Model model) {
         List<BookMaster> books = service.displayCheckedOutBooks(customerNumber);
         if (!books.isEmpty()) {
-            return books.stream().toArray(BookMaster[]::new);
+            return books.toArray(new BookMaster[0]);
         }
         else {
             return new BookMaster[] {new BookMaster(0, "",
